@@ -4,7 +4,7 @@ import pytz
 import requests
 
 def update_footer():
-    timestamp = datetime.datetime.now(pytz.timezone("Canada/Winnipeg")).strftime("%c")
+    timestamp = datetime.datetime.now(pytz.timezone("Canada/Central")).strftime("%c")
     footer = Path('../FOOTER.md').read_text()
     return footer.format(timestamp=timestamp)
 
