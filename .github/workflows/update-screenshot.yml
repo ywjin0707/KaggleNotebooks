@@ -2,9 +2,9 @@
 
 name: update-screenshot
 
-on:
-  schedule:
-    - cron: "0,15,30,45 * * * *"
+on: [push]
+#   schedule:
+#     - cron: "0,15,30,45 * * * *"
 
 jobs:
   build-and-deploy:
