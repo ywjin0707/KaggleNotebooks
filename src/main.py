@@ -9,7 +9,7 @@ def update_footer():
     return footer.format(timestamp=timestamp)
 
 img_data = requests.get("https://capture-website-api.herokuapp.com/capture?url=https://www.kaggle.com/yongwonjin").content
-with open(Path('./kaggleprofile.jpg'), 'wb') as handler:
+with open(Path('./kaggleprofile.png'), 'wb') as handler:
   handler.write(img_data)
 
 readme = Path('../README.md').read_text()
