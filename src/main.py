@@ -14,4 +14,4 @@ with open(Path('./kaggleprofile.png'), 'wb') as handler:
 
 readme = Path('../README.md').read_text()
 with open('../README.md', "w+") as f:
-    f.write(updated_readme + update_footer())
+    f.write(readme + update_footer())
