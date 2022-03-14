@@ -4,7 +4,7 @@ name: update-screenshot
 
 on:
   schedule:
-    - cron: "13,19,25 * * * *"
+    - cron: "21 * * * *"
 
 jobs:
   build:
