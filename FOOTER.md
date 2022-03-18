@@ -1,5 +1,6 @@
 <hr>
 <div align="center">
-README.md last auto generated {timestamp}
+The profile screenshot above is updated every day and with every push!
+README.md last auto-generated {timestamp}
 <br>
 </div>
