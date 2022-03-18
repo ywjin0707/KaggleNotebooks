@@ -22,11 +22,11 @@ jobs:
         with:                                 
           python-version: '3.8'
       - name: Set up Chrome
-      - uses: browser-actions/setup-chrome@latest
-      - run: chrome --version
+        uses: browser-actions/setup-chrome@latest
+        run: chrome --version
       - name: Set up chromedriver
-      - uses: actions/checkout@v2
-      - uses: nanasess/setup-chromedriver@v1
+        uses: actions/checkout@v2
+        uses: nanasess/setup-chromedriver@v1
       - name: 💿 Install Selenium & pytz                              
         run: pip install selenium pytz
       - name: 🍳 Update README
