@@ -2,9 +2,12 @@
 
 name: update-screenshot
 
-on: [push]
-#   schedule:
-#     - cron: "0,15,30,45 * * * *"
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "5 5 * * *"
 
 jobs:
   build-and-deploy:
@@ -17,9 +20,15 @@ jobs:
       - name: 🐍 Set up Python 3.8                               
         uses: actions/setup-python@v2                               
         with:                                 
-          python-version: '3.8'                                                   
-      - name: 💿 Install requests & pytz                              
-        run: pip install requests pytz
+          python-version: '3.8'
+      - name: Set up Chrome
+      - uses: browser-actions/setup-chrome@latest
+      - run: chrome --version
+      - name: Set up chromedriver
+      - uses: actions/checkout@v2
+      - uses: nanasess/setup-chromedriver@v1
+      - name: 💿 Install Selenium & pytz                              
+        run: pip install selenium pytz
       - name: 🍳 Update README
         run: |
           cd ${GITHUB_WORKSPACE}/src/
