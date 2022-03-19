@@ -23,15 +23,22 @@ jobs:
           python-version: '3.8'
       - name: Set up Chrome
         uses: browser-actions/setup-chrome@latest
-#         run: chrome --version
+      - run: chrome --version
       - name: Set up chromedriver
         uses: nanasess/setup-chromedriver@v1
+        with:
+          # Optional: do not specify to match Chrome's version
+          chromedriver-version: '98.0.4758'
       - name: 💿 Install Selenium, pytz & webdriver_manager                              
         run: pip install selenium pytz webdriver_manager
       - name: 🍳 Update README
         run: |
           cd ${GITHUB_WORKSPACE}/src/
           python main.py
+      - run: | # debugging
+          ls -l
+      - run: | # debugging
+          pwd
       - name: 🚀 Deploy
         run: |
           git config user.name "${GITHUB_ACTOR}"
