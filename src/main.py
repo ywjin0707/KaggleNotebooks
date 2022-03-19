@@ -24,13 +24,15 @@ chrome_options.add_argument("--headless")
 chrome_options.add_argument("--single-process")
 chrome_options.add_argument("--disable-dev-shm-usage")
 
-try:
-    from webdriver_manager.chrome import ChromeDriverManager
-    s=Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=s)
-except ImportError as e: # module doesn't exist, define driver by executable path
-    # driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver', options=chrome_options)
-    driver = webdriver.Chrome(PATH, options=chrome_options) #main.py:25: DeprecationWarning: executable_path has been deprecated, please pass in a Service object
+# try:
+#     from webdriver_manager.chrome import ChromeDriverManager
+#     s=Service(ChromeDriverManager().install())
+#     driver = webdriver.Chrome(service=s)
+# except ImportError as e: # module doesn't exist, define driver by executable path
+#     # driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver', options=chrome_options)
+#     driver = webdriver.Chrome(PATH, options=chrome_options) #main.py:25: DeprecationWarning: executable_path has been deprecated, please pass in a Service object
+
+driver = webdriver.Chrome(PATH, options=chrome_options) #main.py:25: DeprecationWarning: executable_path has been deprecated, please pass in a Service object
 
 driver.implicitly_wait(10)
 
