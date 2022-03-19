@@ -5,7 +5,7 @@ name: update-screenshot
 on:
   push:
     branches:
-      - master
+      - main
   schedule:
     - cron: "0 0 * * *" # 9:00 AM KST; 7:00 PM CST
 
