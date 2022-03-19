@@ -3,6 +3,7 @@ import datetime
 import pytz
 # import requests
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -16,8 +17,12 @@ def update_footer():
 ## retrieve screenshot from Kaggle using Selenium
 PATH = "/usr/bin/chromedriver"
 Xpath = '//*[@id="site-container"]/div/div[5]/div/div[2]/div'
+chrome_options = Options()
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument("--headless")
 
-driver = webdriver.Chrome(PATH)
+# driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver', options=chrome_options)
+driver = webdriver.Chrome(PATH, options=chrome_options)
 driver.implicitly_wait(10)
 
 driver.get("https://kaggle.com/yongwonjin")
