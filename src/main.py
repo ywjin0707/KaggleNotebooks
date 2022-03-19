@@ -25,14 +25,15 @@ chrome_options.add_argument("--single-process")
 chrome_options.add_argument("--disable-dev-shm-usage")
 
 # try:
-#     from webdriver_manager.chrome import ChromeDriverManager
-#     s=Service(ChromeDriverManager().install())
-#     driver = webdriver.Chrome(service=s)
+# selenium 4
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.utils import ChromeType
+driver = webdriver.Chrome(service=Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()))
 # except ImportError as e: # module doesn't exist, define driver by executable path
-#     # driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver', options=chrome_options)
+    # driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver', options=chrome_options)
 #     driver = webdriver.Chrome(PATH, options=chrome_options) #main.py:25: DeprecationWarning: executable_path has been deprecated, please pass in a Service object
 
-driver = webdriver.Chrome(PATH, options=chrome_options) #main.py:25: DeprecationWarning: executable_path has been deprecated, please pass in a Service object
+# driver = webdriver.Chrome(PATH, options=chrome_options) #main.py:25: DeprecationWarning: executable_path has been deprecated, please pass in a Service object
 
 driver.implicitly_wait(10)
 
@@ -40,7 +41,7 @@ driver.get("https://kaggle.com/yongwonjin")
 wait = WebDriverWait(driver, 15)
 wait.until(EC.element_to_be_clickable((By.XPATH, Xpath)))
 driver.find_element(by=By.XPATH, value=Xpath).click() # main.py:31: DeprecationWarning: find_element_by_xpath is deprecated. Please use find_element(by=By.XPATH, value=xpath) instead
-driver.save_screenshot("kaggleprofile.png")
+driver.save_screenshot("/home/runner/work/KaggleNotebooks/KaggleNotebooks/src/kaggleprofile.png")
 
 # img_data = requests.get("https://capture-website-api.herokuapp.com/capture?url=https://www.kaggle.com/yongwonjin").content
 # with open(Path('./kaggleprofile.png'), 'wb') as handler:
