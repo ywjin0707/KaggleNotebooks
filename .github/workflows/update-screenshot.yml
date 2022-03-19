@@ -22,7 +22,7 @@ jobs:
         with:                                 
           python-version: '3.8'
       - name: Set up Chrome
-        uses: browser-actions/setup-chrome@latest
+        uses: browser-actions/setup-chrome@970112
       - run: chrome --version
       - name: Set up chromedriver
         uses: nanasess/setup-chromedriver@v1
