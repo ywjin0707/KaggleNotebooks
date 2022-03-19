@@ -28,7 +28,7 @@ jobs:
         uses: nanasess/setup-chromedriver@v1
         with:
           # Optional: do not specify to match Chrome's version
-          chromedriver-version: '98.0.4758'
+          chromedriver-version: '98.0.4758.102'
       - name: 💿 Install Selenium, pytz & webdriver_manager                              
         run: pip install selenium pytz webdriver_manager
       - name: 🍳 Update README
